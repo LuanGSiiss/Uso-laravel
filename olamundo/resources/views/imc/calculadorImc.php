@@ -8,8 +8,9 @@
 </head>
 <body>
     <h1>Calculadora IMC</h1>
-    <form onsubmit="return false;">
+    <form action="./CalculadorImc" method="POST">
         <fieldset>
+            <input type="hidden" name="_token" value="<?= csrf_token() ?>">
             <p>
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" id="nome" required>
@@ -23,15 +24,12 @@
                 <input type="number" name="peso" id="peso" placeholder="81.2" required>
             </p>
             <p>
-                <label for="altura">Altura(M):</label>
-                <input type="number" name="altura" id="altura" placeholder="176.4" required>
+                <label for="altura">Altura(cm):</label>
+                <input type="number" name="altura" id="altura" placeholder="176" required>
             </p>
 
-            <button onclick="calcularIMC()">Calcular</button>
+            <button type="submit">Calcular</button>
         </fieldset>
     </form>
-    <div class="resultado" id="resultado">
-
-    </div>
 </body>
 </html>
